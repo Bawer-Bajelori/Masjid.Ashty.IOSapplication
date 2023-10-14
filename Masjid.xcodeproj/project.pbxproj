@@ -1,0 +1,746 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A0E42C5297F994800270060 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E42C4297F994800270060 /* HomeViewModel.swift */; };
+		4A0E42C7297F996800270060 /* VideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E42C6297F996800270060 /* VideosViewModel.swift */; };
+		4A0E42C9297F998300270060 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E42C8297F998300270060 /* CalendarViewModel.swift */; };
+		4A0E61E929B03C1600326DCC /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E61E829B03C1500326DCC /* ServicesView.swift */; };
+		4A0E61EC29B3043700326DCC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E61EB29B3043700326DCC /* Colors.swift */; };
+		4A0E61EE29D5428000326DCC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E61ED29D5428000326DCC /* API.swift */; };
+		4A0E61F129D54DC400326DCC /* APITypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E61F029D54DC400326DCC /* APITypes.swift */; };
+		4A0E61F329D5542B00326DCC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E61F229D5542B00326DCC /* APIClient.swift */; };
+		4A15C7072970F64F00DA6DD0 /* MasjidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C7062970F64F00DA6DD0 /* MasjidApp.swift */; };
+		4A15C7092970F64F00DA6DD0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C7082970F64F00DA6DD0 /* Persistence.swift */; };
+		4A15C70C2970F64F00DA6DD0 /* Masjid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C70A2970F64F00DA6DD0 /* Masjid.xcdatamodeld */; };
+		4A15C7102970F65200DA6DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A15C70F2970F65200DA6DD0 /* Assets.xcassets */; };
+		4A15C7142970F65200DA6DD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A15C7132970F65200DA6DD0 /* Preview Assets.xcassets */; };
+		4A15C71E2970F65300DA6DD0 /* MasjidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C71D2970F65300DA6DD0 /* MasjidTests.swift */; };
+		4A15C7282970F65300DA6DD0 /* MasjidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C7272970F65300DA6DD0 /* MasjidUITests.swift */; };
+		4A15C72A2970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C7292970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift */; };
+		4A70D487298C4D0F0094912A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A70D486298C4D0F0094912A /* ContentView.swift */; };
+		4AE6F03A297928CC004429C5 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F039297928CC004429C5 /* AboutView.swift */; };
+		4AE6F03C29792A06004429C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03B29792A06004429C5 /* HomeView.swift */; };
+		4AE6F03E29792A39004429C5 /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03D29792A39004429C5 /* VideosView.swift */; };
+		4AE6F04029792A68004429C5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03F29792A68004429C5 /* CalendarView.swift */; };
+		4AE6F047297B9C64004429C5 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F046297B9C64004429C5 /* AboutViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A15C71A2970F65300DA6DD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A15C6FB2970F64E00DA6DD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A15C7022970F64E00DA6DD0;
+			remoteInfo = Masjid;
+		};
+		4A15C7242970F65300DA6DD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A15C6FB2970F64E00DA6DD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A15C7022970F64E00DA6DD0;
+			remoteInfo = Masjid;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4A0E42C4297F994800270060 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4A0E42C6297F996800270060 /* VideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewModel.swift; sourceTree = "<group>"; };
+		4A0E42C8297F998300270060 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		4A0E61E829B03C1500326DCC /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		4A0E61EB29B3043700326DCC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4A0E61ED29D5428000326DCC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		4A0E61F029D54DC400326DCC /* APITypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITypes.swift; sourceTree = "<group>"; };
+		4A0E61F229D5542B00326DCC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4A15C7032970F64F00DA6DD0 /* Masjid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masjid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A15C7062970F64F00DA6DD0 /* MasjidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasjidApp.swift; sourceTree = "<group>"; };
+		4A15C7082970F64F00DA6DD0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		4A15C70B2970F64F00DA6DD0 /* Masjid.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Masjid.xcdatamodel; sourceTree = "<group>"; };
+		4A15C70F2970F65200DA6DD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A15C7112970F65200DA6DD0 /* Masjid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masjid.entitlements; sourceTree = "<group>"; };
+		4A15C7132970F65200DA6DD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A15C7192970F65300DA6DD0 /* MasjidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasjidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A15C71D2970F65300DA6DD0 /* MasjidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasjidTests.swift; sourceTree = "<group>"; };
+		4A15C7232970F65300DA6DD0 /* MasjidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasjidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A15C7272970F65300DA6DD0 /* MasjidUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasjidUITests.swift; sourceTree = "<group>"; };
+		4A15C7292970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasjidUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A70D486298C4D0F0094912A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4AE6F039297928CC004429C5 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		4AE6F03B29792A06004429C5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4AE6F03D29792A39004429C5 /* VideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosView.swift; sourceTree = "<group>"; };
+		4AE6F03F29792A68004429C5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		4AE6F046297B9C64004429C5 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A15C7002970F64E00DA6DD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A15C7162970F65300DA6DD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A15C7202970F65300DA6DD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A0E61E729B03BF900326DCC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4A0E61E829B03C1500326DCC /* ServicesView.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4A0E61EA29B303F600326DCC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4A0E61EB29B3043700326DCC /* Colors.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4A0E61EF29D5429300326DCC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4A0E61ED29D5428000326DCC /* API.swift */,
+				4A0E61F029D54DC400326DCC /* APITypes.swift */,
+				4A0E61F229D5542B00326DCC /* APIClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4A15C6FA2970F64E00DA6DD0 = {
+			isa = PBXGroup;
+			children = (
+				4A15C7052970F64F00DA6DD0 /* Masjid */,
+				4A15C71C2970F65300DA6DD0 /* MasjidTests */,
+				4A15C7262970F65300DA6DD0 /* MasjidUITests */,
+				4A15C7042970F64F00DA6DD0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A15C7042970F64F00DA6DD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A15C7032970F64F00DA6DD0 /* Masjid.app */,
+				4A15C7192970F65300DA6DD0 /* MasjidTests.xctest */,
+				4A15C7232970F65300DA6DD0 /* MasjidUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A15C7052970F64F00DA6DD0 /* Masjid */ = {
+			isa = PBXGroup;
+			children = (
+				4A0E61EA29B303F600326DCC /* Utilities */,
+				4AE6F0382979289A004429C5 /* ScreenRoots */,
+				4A15C7062970F64F00DA6DD0 /* MasjidApp.swift */,
+				4A70D486298C4D0F0094912A /* ContentView.swift */,
+				4A15C7082970F64F00DA6DD0 /* Persistence.swift */,
+				4A15C70F2970F65200DA6DD0 /* Assets.xcassets */,
+				4A15C7112970F65200DA6DD0 /* Masjid.entitlements */,
+				4A15C70A2970F64F00DA6DD0 /* Masjid.xcdatamodeld */,
+				4A15C7122970F65200DA6DD0 /* Preview Content */,
+				4A0E61EF29D5429300326DCC /* API */,
+			);
+			path = Masjid;
+			sourceTree = "<group>";
+		};
+		4A15C7122970F65200DA6DD0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4A15C7132970F65200DA6DD0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A15C71C2970F65300DA6DD0 /* MasjidTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A15C71D2970F65300DA6DD0 /* MasjidTests.swift */,
+			);
+			path = MasjidTests;
+			sourceTree = "<group>";
+		};
+		4A15C7262970F65300DA6DD0 /* MasjidUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4A15C7272970F65300DA6DD0 /* MasjidUITests.swift */,
+				4A15C7292970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift */,
+			);
+			path = MasjidUITests;
+			sourceTree = "<group>";
+		};
+		4AE6F0382979289A004429C5 /* ScreenRoots */ = {
+			isa = PBXGroup;
+			children = (
+				4A0E61E729B03BF900326DCC /* Services */,
+				4AE6F04529792CC8004429C5 /* Calendar */,
+				4AE6F04429792C9F004429C5 /* Videos */,
+				4AE6F04329792C82004429C5 /* Home */,
+				4AE6F04229792C53004429C5 /* About */,
+			);
+			path = ScreenRoots;
+			sourceTree = "<group>";
+		};
+		4AE6F04229792C53004429C5 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				4AE6F039297928CC004429C5 /* AboutView.swift */,
+				4AE6F046297B9C64004429C5 /* AboutViewModel.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		4AE6F04329792C82004429C5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4AE6F03B29792A06004429C5 /* HomeView.swift */,
+				4A0E42C4297F994800270060 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4AE6F04429792C9F004429C5 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				4AE6F03D29792A39004429C5 /* VideosView.swift */,
+				4A0E42C6297F996800270060 /* VideosViewModel.swift */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		4AE6F04529792CC8004429C5 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				4AE6F03F29792A68004429C5 /* CalendarView.swift */,
+				4A0E42C8297F998300270060 /* CalendarViewModel.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A15C7022970F64E00DA6DD0 /* Masjid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A15C72D2970F65300DA6DD0 /* Build configuration list for PBXNativeTarget "Masjid" */;
+			buildPhases = (
+				4A15C6FF2970F64E00DA6DD0 /* Sources */,
+				4A15C7002970F64E00DA6DD0 /* Frameworks */,
+				4A15C7012970F64E00DA6DD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Masjid;
+			productName = Masjid;
+			productReference = 4A15C7032970F64F00DA6DD0 /* Masjid.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A15C7182970F65300DA6DD0 /* MasjidTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A15C7302970F65300DA6DD0 /* Build configuration list for PBXNativeTarget "MasjidTests" */;
+			buildPhases = (
+				4A15C7152970F65300DA6DD0 /* Sources */,
+				4A15C7162970F65300DA6DD0 /* Frameworks */,
+				4A15C7172970F65300DA6DD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A15C71B2970F65300DA6DD0 /* PBXTargetDependency */,
+			);
+			name = MasjidTests;
+			productName = MasjidTests;
+			productReference = 4A15C7192970F65300DA6DD0 /* MasjidTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4A15C7222970F65300DA6DD0 /* MasjidUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A15C7332970F65300DA6DD0 /* Build configuration list for PBXNativeTarget "MasjidUITests" */;
+			buildPhases = (
+				4A15C71F2970F65300DA6DD0 /* Sources */,
+				4A15C7202970F65300DA6DD0 /* Frameworks */,
+				4A15C7212970F65300DA6DD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A15C7252970F65300DA6DD0 /* PBXTargetDependency */,
+			);
+			name = MasjidUITests;
+			productName = MasjidUITests;
+			productReference = 4A15C7232970F65300DA6DD0 /* MasjidUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A15C6FB2970F64E00DA6DD0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					4A15C7022970F64E00DA6DD0 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					4A15C7182970F65300DA6DD0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4A15C7022970F64E00DA6DD0;
+					};
+					4A15C7222970F65300DA6DD0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4A15C7022970F64E00DA6DD0;
+					};
+				};
+			};
+			buildConfigurationList = 4A15C6FE2970F64E00DA6DD0 /* Build configuration list for PBXProject "Masjid" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A15C6FA2970F64E00DA6DD0;
+			productRefGroup = 4A15C7042970F64F00DA6DD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A15C7022970F64E00DA6DD0 /* Masjid */,
+				4A15C7182970F65300DA6DD0 /* MasjidTests */,
+				4A15C7222970F65300DA6DD0 /* MasjidUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A15C7012970F64E00DA6DD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A15C7142970F65200DA6DD0 /* Preview Assets.xcassets in Resources */,
+				4A15C7102970F65200DA6DD0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A15C7172970F65300DA6DD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A15C7212970F65300DA6DD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A15C6FF2970F64E00DA6DD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A0E61E929B03C1600326DCC /* ServicesView.swift in Sources */,
+				4A0E61F329D5542B00326DCC /* APIClient.swift in Sources */,
+				4A0E42C9297F998300270060 /* CalendarViewModel.swift in Sources */,
+				4A15C70C2970F64F00DA6DD0 /* Masjid.xcdatamodeld in Sources */,
+				4A0E61EC29B3043700326DCC /* Colors.swift in Sources */,
+				4A0E61EE29D5428000326DCC /* API.swift in Sources */,
+				4A15C7072970F64F00DA6DD0 /* MasjidApp.swift in Sources */,
+				4AE6F04029792A68004429C5 /* CalendarView.swift in Sources */,
+				4A0E42C5297F994800270060 /* HomeViewModel.swift in Sources */,
+				4A0E61F129D54DC400326DCC /* APITypes.swift in Sources */,
+				4AE6F03E29792A39004429C5 /* VideosView.swift in Sources */,
+				4A0E42C7297F996800270060 /* VideosViewModel.swift in Sources */,
+				4AE6F03C29792A06004429C5 /* HomeView.swift in Sources */,
+				4A15C7092970F64F00DA6DD0 /* Persistence.swift in Sources */,
+				4A70D487298C4D0F0094912A /* ContentView.swift in Sources */,
+				4AE6F047297B9C64004429C5 /* AboutViewModel.swift in Sources */,
+				4AE6F03A297928CC004429C5 /* AboutView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A15C7152970F65300DA6DD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A15C71E2970F65300DA6DD0 /* MasjidTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A15C71F2970F65300DA6DD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A15C72A2970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift in Sources */,
+				4A15C7282970F65300DA6DD0 /* MasjidUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A15C71B2970F65300DA6DD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A15C7022970F64E00DA6DD0 /* Masjid */;
+			targetProxy = 4A15C71A2970F65300DA6DD0 /* PBXContainerItemProxy */;
+		};
+		4A15C7252970F65300DA6DD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A15C7022970F64E00DA6DD0 /* Masjid */;
+			targetProxy = 4A15C7242970F65300DA6DD0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4A15C72B2970F65300DA6DD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A15C72C2970F65300DA6DD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4A15C72E2970F65300DA6DD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Masjid/Masjid.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Masjid/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.canvasprojects.Landmark.Masjid;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A15C72F2970F65300DA6DD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Masjid/Masjid.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Masjid/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.canvasprojects.Landmark.Masjid;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4A15C7312970F65300DA6DD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.canvasprojects.Landmark.MasjidTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Masjid.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Masjid";
+			};
+			name = Debug;
+		};
+		4A15C7322970F65300DA6DD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.canvasprojects.Landmark.MasjidTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Masjid.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Masjid";
+			};
+			name = Release;
+		};
+		4A15C7342970F65300DA6DD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.canvasprojects.Landmark.MasjidUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Masjid;
+			};
+			name = Debug;
+		};
+		4A15C7352970F65300DA6DD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.canvasprojects.Landmark.MasjidUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Masjid;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A15C6FE2970F64E00DA6DD0 /* Build configuration list for PBXProject "Masjid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A15C72B2970F65300DA6DD0 /* Debug */,
+				4A15C72C2970F65300DA6DD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A15C72D2970F65300DA6DD0 /* Build configuration list for PBXNativeTarget "Masjid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A15C72E2970F65300DA6DD0 /* Debug */,
+				4A15C72F2970F65300DA6DD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A15C7302970F65300DA6DD0 /* Build configuration list for PBXNativeTarget "MasjidTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A15C7312970F65300DA6DD0 /* Debug */,
+				4A15C7322970F65300DA6DD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A15C7332970F65300DA6DD0 /* Build configuration list for PBXNativeTarget "MasjidUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A15C7342970F65300DA6DD0 /* Debug */,
+				4A15C7352970F65300DA6DD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4A15C70A2970F64F00DA6DD0 /* Masjid.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4A15C70B2970F64F00DA6DD0 /* Masjid.xcdatamodel */,
+			);
+			currentVersion = 4A15C70B2970F64F00DA6DD0 /* Masjid.xcdatamodel */;
+			path = Masjid.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4A15C6FB2970F64E00DA6DD0 /* Project object */;
+}
