@@ -29,6 +29,8 @@
 		4AE6F03E29792A39004429C5 /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03D29792A39004429C5 /* VideosView.swift */; };
 		4AE6F04029792A68004429C5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03F29792A68004429C5 /* CalendarView.swift */; };
 		4AE6F047297B9C64004429C5 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F046297B9C64004429C5 /* AboutViewModel.swift */; };
+		85D6DD4E2AE8C60A00F8E782 /* ServicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6DD4D2AE8C60A00F8E782 /* ServicesViewModel.swift */; };
+		85EC563B2AF5DD6500C27530 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC563A2AF5DD6500C27530 /* Text.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		4AE6F03D29792A39004429C5 /* VideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosView.swift; sourceTree = "<group>"; };
 		4AE6F03F29792A68004429C5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		4AE6F046297B9C64004429C5 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		85D6DD4D2AE8C60A00F8E782 /* ServicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewModel.swift; sourceTree = "<group>"; };
+		85EC563A2AF5DD6500C27530 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4A0E61E829B03C1500326DCC /* ServicesView.swift */,
+				85D6DD4D2AE8C60A00F8E782 /* ServicesViewModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 		4A15C7052970F64F00DA6DD0 /* Masjid */ = {
 			isa = PBXGroup;
 			children = (
+				85EC56392AF5DD2800C27530 /* SharedViews */,
 				4A0E61EA29B303F600326DCC /* Utilities */,
 				4AE6F0382979289A004429C5 /* ScreenRoots */,
 				4A15C7062970F64F00DA6DD0 /* MasjidApp.swift */,
@@ -236,6 +242,14 @@
 				4A0E42C8297F998300270060 /* CalendarViewModel.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		85EC56392AF5DD2800C27530 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				85EC563A2AF5DD6500C27530 /* Text.swift */,
+			);
+			path = SharedViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +388,10 @@
 				4A15C70C2970F64F00DA6DD0 /* Masjid.xcdatamodeld in Sources */,
 				4A0E61EC29B3043700326DCC /* Colors.swift in Sources */,
 				4A0E61EE29D5428000326DCC /* API.swift in Sources */,
+				85EC563B2AF5DD6500C27530 /* Text.swift in Sources */,
 				4A15C7072970F64F00DA6DD0 /* MasjidApp.swift in Sources */,
 				4AE6F04029792A68004429C5 /* CalendarView.swift in Sources */,
+				85D6DD4E2AE8C60A00F8E782 /* ServicesViewModel.swift in Sources */,
 				4A0E42C5297F994800270060 /* HomeViewModel.swift in Sources */,
 				4A0E61F129D54DC400326DCC /* APITypes.swift in Sources */,
 				4AE6F03E29792A39004429C5 /* VideosView.swift in Sources */,

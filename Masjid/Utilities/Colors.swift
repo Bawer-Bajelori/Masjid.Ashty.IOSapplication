@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 enum CustomColor {
-    static let customBackgroundColor = UIColor(named: "Background")
-    static let customPrimaryColor = UIColor(named: "Primary")
-    static let customPrimaryVariant = UIColor(named: "PrimaryVariant")
-    static let customOnBackground = UIColor(named: "onBackground")
-    static let customOnSurface = UIColor(named: "onSurface")
+    static let BackgroundColor = UIColor(named: "Background")
+    static let PrimaryColor = UIColor(named: "Primary")
+    static let PrimaryVariant = UIColor(named: "PrimaryVariant")
+    static let OnBackground = UIColor(named: "onBackground")
+    static let OnSurface = UIColor(named: "onSurface")
 }

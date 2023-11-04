@@ -46,7 +46,7 @@ struct AboutView : View{
                 }
                 //            .background(Color.init(uiColor: CustomColor.customBackgroundColor ?? .white))
                 
-            }.background(Color.init(uiColor: CustomColor.customBackgroundColor ?? .white))
+            }.background(Color.init(uiColor: CustomColor.BackgroundColor ?? .white))
         }
     }
             

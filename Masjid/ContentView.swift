@@ -8,6 +8,12 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor.black
+        UITabBar.appearance().backgroundColor = CustomColor.PrimaryColor
+        //UITabBar.appearance().barTintColor = CustomColor.PrimaryColor
+    }
+    
     var body: some View {
         TabView{
             HomeView(viewModel: HomeViewModel())
@@ -15,11 +21,12 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-            CalendarView(viewModel:CalenderViewModel())
+            CalendarView(viewModel: CalenderViewModel())
                 .tabItem{
-                    Image(systemName: "calendar.circle")
+                    Image(systemName: "calendar")
                     Text("Calendar")
                 }
+        
             VideosView()
                 .tabItem{
                     Image(systemName: "video.circle.fill")
@@ -27,20 +34,20 @@ struct ContentView: View {
                 }
             AboutView(viewModel: AboutViewModel())
                 .tabItem{
-                    Image(systemName: "ellipsis.circle.fill")
+                    Image(systemName: "info.circle.fill")
                     Text("About")
                     
                 }
-            ServicesView()
+            ServicesView(viewModel: ServicesViewModel())
                 .tabItem{
-                
                     Image(systemName: "info.circle.fill")
                     Text("Services")
                 }
-            
         }
+        .tint(.white)
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View{
         ContentView()
