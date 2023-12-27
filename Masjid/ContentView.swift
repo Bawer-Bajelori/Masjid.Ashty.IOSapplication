@@ -20,11 +20,11 @@ struct ContentView: View {
                     Image(systemName: "calendar.circle")
                     Text("Calendar")
                 }
-            VideosView()
-                .tabItem{
-                    Image(systemName: "video.circle.fill")
-                    Text("Live")
-                }
+         //  VideosView()
+              //  .tabItem{
+                //    Image(systemName: "video.circle.fill")
+                  //  Text("Live")
+                //}
             AboutView(viewModel: AboutViewModel())
                 .tabItem{
                     Image(systemName: "ellipsis.circle.fill")
@@ -37,7 +37,7 @@ struct ContentView: View {
                     Image(systemName: "info.circle.fill")
                     Text("Services")
                 }
-            
+              
         }
     }
 }

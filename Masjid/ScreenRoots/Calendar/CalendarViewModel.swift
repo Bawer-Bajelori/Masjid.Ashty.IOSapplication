@@ -23,9 +23,9 @@ struct Day: Identifiable {
    var id = UUID()
     //var weekDayCellText: String
     var prayerTimes: [CalendarPrayerTime]
-   // var month: Month
+    //var month: Month
    // var year: String
-   // var currentDayIndex: Int?
+   // var currentDayIndex: Int
 }
 
 enum CalendarType {
