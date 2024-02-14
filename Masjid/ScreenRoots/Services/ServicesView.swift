@@ -29,6 +29,7 @@ struct ServicesView: View {
             }
         }
         .background(Color(CustomColor.BackgroundColor! ))
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
     }
 }
 

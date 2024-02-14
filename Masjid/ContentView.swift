@@ -14,39 +14,38 @@ struct ContentView: View {
         //UITabBar.appearance().barTintColor = CustomColor.PrimaryColor
     }
     
+   // @Binding var tabViewHeight: CGFloat
+    
     var body: some View {
-        TabView{
-            HomeView(viewModel: HomeViewModel())
-                .tabItem{
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            CalendarView(viewModel: CalenderViewModel())
-                .tabItem{
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-                }
+        //@Binding var tabViewHeight: CGFloat
         
-            VideosView()
-                .tabItem{
-                    Image(systemName: "video.circle.fill")
-                    Text("Live")
-                }
-            AboutView(viewModel: AboutViewModel())
-                .tabItem{
-                    Image(systemName: "info.circle.fill")
-                    Text("About")
-                    
-                }
-            ServicesView(viewModel: ServicesViewModel())
-                .tabItem{
-                    Image(systemName: "info.circle.fill")
-                    Text("Services")
-                }
+        TabView{
+                HomeView(viewModel: HomeViewModel())
+                    .tabItem{
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+            CalendarView(viewModel: CalenderViewModel(), tabViewHeight: )
+                    .tabItem{
+                        Image(systemName: "calendar")
+                        Text("Calendar")
+                    }
+                ServicesView(viewModel: ServicesViewModel())
+                    .tabItem{
+                        Image(systemName: "info.circle.fill")
+                        Text("Services")
+                    }
+                
+                AboutView(viewModel: AboutViewModel())
+                    .tabItem{
+                        Image(systemName: "info.circle.fill")
+                        Text("About")
+                    }
         }
         .tint(.white)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View{

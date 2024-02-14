@@ -8,8 +8,10 @@ import SwiftUI
 
 struct CalendarView: View {
     @ObservedObject var viewModel: CalenderViewModel
+    var tabViewHeight: CGFloat
     
     var body: some View {
+        let _ = print("Laween tabViewHeight: \(tabViewHeight)")
         VStack {
             Text(viewModel.state.calendarTitle)
                 .font(.title)
@@ -53,11 +55,11 @@ struct CalendarView: View {
             // Trigger initial fetch when the view appears
             viewModel.fetchCalendarTimes()
         })
+        .padding(.bottom, tabViewHeight)
     }
 }
-
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView(viewModel: CalenderViewModel())
+        CalendarView(viewModel: CalenderViewModel(), tabViewHeight: 0)
     }
 }
