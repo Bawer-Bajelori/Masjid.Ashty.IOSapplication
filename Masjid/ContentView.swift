@@ -8,44 +8,49 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor.black
+        UITabBar.appearance().backgroundColor = CustomColor.PrimaryColor
+        //UITabBar.appearance().barTintColor = CustomColor.PrimaryColor
+    }
+    
+    @State var size: CGSize = .zero
+    
     var body: some View {
+        
+        
         TabView{
-            HomeView(viewModel: HomeViewModel())
-                .tabItem{
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            CalendarView(viewModel:CalenderViewModel())
-                .tabItem{
-                    Image(systemName: "calendar.circle")
-                    Text("Calendar")
-                }
-         //  VideosView()
-              //  .tabItem{
-                //    Image(systemName: "video.circle.fill")
-                  //  Text("Live")
-                //}
-            AboutView(viewModel: AboutViewModel())
-                .tabItem{
-                    Image(systemName: "ellipsis.circle.fill")
-                    Text("About")
-                    
-                }
-            ServicesView()
-                .tabItem{
+                HomeView(viewModel: HomeViewModel())
+                    .tabItem{
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+            CalendarView(viewModel: CalenderViewModel())
+                    .tabItem{
+                        Image(systemName: "calendar")
+                        Text("Calendar")
+                    }
+                ServicesView(viewModel: ServicesViewModel())
+                    .tabItem{
+                        Image(systemName: "info.circle.fill")
+                        Text("Services")
+                    }
                 
-                    Image(systemName: "info.circle.fill")
-                    Text("Services")
-                }
-              
+                AboutView(viewModel: AboutViewModel())
+                    .tabItem{
+                        Image(systemName: "info.circle.fill")
+                        Text("About")
+                    }
         }
+        .tint(.white)
     }
 }
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View{
         ContentView()
     }
 }
-
 
 

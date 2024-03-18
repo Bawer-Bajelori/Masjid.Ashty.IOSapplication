@@ -80,10 +80,9 @@ struct AboutView : View{
                     }
                     .padding(.top)
                 }
-            
-               
                 .background(Color.init(uiColor: CustomColor.customBackgroundColor ?? .white))
             }
+
         }
     }
     func handleInfoItemTap(item:InfoItem){
