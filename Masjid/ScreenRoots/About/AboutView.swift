@@ -80,7 +80,7 @@ struct AboutView : View{
                     }
                     .padding(.top)
                 }
-                .background(Color.init(uiColor: CustomColor.customBackgroundColor ?? .white))
+                .background(Color(CustomColor.BackgroundColor! ))
             }
 
         }
