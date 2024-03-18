@@ -14,10 +14,10 @@ struct ContentView: View {
         //UITabBar.appearance().barTintColor = CustomColor.PrimaryColor
     }
     
-   // @Binding var tabViewHeight: CGFloat
+    @State var size: CGSize = .zero
     
     var body: some View {
-        //@Binding var tabViewHeight: CGFloat
+        
         
         TabView{
                 HomeView(viewModel: HomeViewModel())
@@ -25,7 +25,7 @@ struct ContentView: View {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
-            CalendarView(viewModel: CalenderViewModel(), tabViewHeight: )
+            CalendarView(viewModel: CalenderViewModel())
                     .tabItem{
                         Image(systemName: "calendar")
                         Text("Calendar")

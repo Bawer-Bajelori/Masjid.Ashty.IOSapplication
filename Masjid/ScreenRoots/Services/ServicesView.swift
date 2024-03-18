@@ -29,9 +29,10 @@ struct ServicesView: View {
             }
         }
         .background(Color(CustomColor.BackgroundColor! ))
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
     }
 }
+
 
 struct RoundedBorderShape: Shape {
     var cornerRadius: CGFloat
