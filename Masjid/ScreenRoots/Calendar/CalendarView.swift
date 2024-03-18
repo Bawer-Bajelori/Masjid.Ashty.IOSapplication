@@ -43,14 +43,14 @@ struct CalendarView: View {
                     .foregroundColor(.red)
                     .padding()
                 Button(action: {
-                    // Trigger your network fetch or other error recovery here
+                    
                 }) {
                     Text(viewModel.state.errorButtonMessage)
                 }
             }
         }
         .onAppear(perform: {
-            // Trigger initial fetch when the view appears
+            
             viewModel.fetchCalendarTimes()
         })
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
