@@ -11,8 +11,8 @@ struct AboutView : View{
     var viewModel: AboutViewModel
     var body: some View{
         
-        ScrollView{
-            ZStack{
+        VStack{
+            ScrollView{
                 VStack(spacing: 20){
                     
                     
@@ -78,28 +78,31 @@ struct AboutView : View{
                             .foregroundColor(Color.white)
                             .cornerRadius(10)
                     }
-                    .padding(.top)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                 }
-                .background(Color.init(uiColor: CustomColor.customBackgroundColor ?? .white))
+                .background(Color(CustomColor.BackgroundColor! ))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
             }
-
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
         }
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
     }
+       
     func handleInfoItemTap(item:InfoItem){
         switch item.type {
-        case .address:
+        case .ADDRESS:
             if let url = URL(string:"http://maps.apple.com/?address=\(item.displayText.replacingOccurrences(of: " ", with: "+"))"){
                 UIApplication.shared.open(url)
             }
-        case.website:
+        case.WEBSITE:
             if let url = URL(string:"http://\(item.displayText)"){
                 UIApplication.shared.open(url)
             }
-        case.email:
+        case.EMAIL:
             if let url = URL(string: "mailto:\(item.displayText)"){
                 UIApplication.shared.open(url)
             }
-        case.phone:
+        case.PHONE:
             if let url = URL(string:  "tel://\(item.displayText.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""))") {
                 UIApplication.shared.open(url)
             }
