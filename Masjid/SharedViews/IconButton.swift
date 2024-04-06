@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct IconButton: View {
+    var imageName: String
+    var imageColor: Color
+    var action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: action) {
+            Image(systemName: imageName)
+                .foregroundColor(imageColor)
+        }
     }
-}
-
-#Preview {
-    IconButton()
 }

@@ -16,7 +16,8 @@ struct SocialMedia {
     let tint: Color
 }
 
-struct InfoItem {
+struct InfoItem: Identifiable{
+    let id = UUID()
     let iconID: String
     let text: String
     let URL: String
@@ -34,19 +35,27 @@ enum InfoItemType {
 class AboutViewModel: ObservableObject {
     @Published var state: AboutViewState = createAboutViewState()
     
-    func onEmailTapped() {
-        guard let email = state.infoItems.first(where: { $0.type == .EMAIL })?.data else { return }
+    func onEmailTapped(email: String) {
+        
+        print("Lawand " + email)
         
         if let url = URL(string: "mailto:\(email)") {
+            print("Lawand Are we in here")
             UIApplication.shared.open(url)
         }
     }
     
-    func onPhoneNumberTapped() {
-        guard let phoneNumber = state.infoItems.first(where: { $0.type == .PHONE })?.data else { return }
+    func onPhoneNumberTapped(number: String) {
         
-        if let url = URL(string: "tel://\(phoneNumber)") {
-            UIApplication.shared.open(url)
+        print("Lawand " + number)
+        
+        guard let url = URL(string: "telprompt://\(number)") else { return }
+        UIApplication.shared.open(url)
+        if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
+            print("Lawand Are we in here")
+            print(url)
+            
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
         
@@ -54,6 +63,21 @@ class AboutViewModel: ObservableObject {
         
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
+        }
+    }
+    
+    func onInfoItemTapped(infoItem: InfoItem) {
+        let type = infoItem.type
+        let url = infoItem.URL
+        let data = infoItem.data
+        
+        switch type {
+        case InfoItemType.EMAIL:
+            onEmailTapped(email: data)
+        case InfoItemType.PHONE:
+            onPhoneNumberTapped(number: data)
+        default:
+            onWebLinkTapped(urlString: url)
         }
     }
 }

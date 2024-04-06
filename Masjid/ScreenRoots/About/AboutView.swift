@@ -1,126 +1,69 @@
-//
-//  AboutView.swift
-//  Masjid
-//
-//  Created by Bawer Bajelori on 1/18/23.
-//
-
 import SwiftUI
 
-struct AboutView : View{
-    var viewModel: AboutViewModel
-    var body: some View{
-        
-        VStack{
-            ScrollView{
-                VStack(spacing: 20){
-                    
-                    
-                    
-                    Text(viewModel.state.title)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    
-                    
-                    Spacer()
-                    
-                    
-                    Text(viewModel.state.subtitle)
-                        .padding()
-                        .font(.headline)
-                    
-                    
-                    
-                    ForEach(viewModel.state.infoItemList){ i in
-                        Button(action: {
-                            handleInfoItemTap(item: i)
-                        })
-                        {
-                            HStack{
-                                Text(i.displayText)
-                                    .padding()
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                
-                                
-                            }
-                        }
-                        .foregroundColor(Color.blue)
-                    }
-                    HStack(spacing: 40){
-                        ForEach(viewModel.state.socialMediaList){ socialMediaItem in
-                            Button(action: {
-                                openSocialMediaLink(socialMediaItem)
-                            }){
-                                Image(socialMediaItem.type.iconName)
-                            
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 90, height: 90)
-                               
-                                }
-                        }
-                    }
-                    Text(viewModel.state.donationText)
-                        .padding()
-                        .font(.headline)
-                    Button(action: {
-                        if let url = URL(string: viewModel.state.donationLink){
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
-                        Text("Donate")
-                            .padding()
-                            .frame(maxWidth:.infinity)
-                            .background(Color.blue)
-                            .foregroundColor(Color.white)
-                            .cornerRadius(10)
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                }
-                .background(Color(CustomColor.BackgroundColor! ))
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-            }
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-        }
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-    }
-       
-    func handleInfoItemTap(item:InfoItem){
-        switch item.type {
-        case .ADDRESS:
-            if let url = URL(string:"http://maps.apple.com/?address=\(item.displayText.replacingOccurrences(of: " ", with: "+"))"){
-                UIApplication.shared.open(url)
-            }
-        case.WEBSITE:
-            if let url = URL(string:"http://\(item.displayText)"){
-                UIApplication.shared.open(url)
-            }
-        case.EMAIL:
-            if let url = URL(string: "mailto:\(item.displayText)"){
-                UIApplication.shared.open(url)
-            }
-        case.PHONE:
-            if let url = URL(string:  "tel://\(item.displayText.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""))") {
-                UIApplication.shared.open(url)
-            }
-            
-        }
-    }
-        func openSocialMediaLink(_ socialMediaItem: SocialMediaItem){
-            guard let url = URL(string: socialMediaItem.URL) else {return}
-            UIApplication.shared.open(url)
-        
-        
-    }
-}
-        struct AboutView_Previews: PreviewProvider {
-            static var previews: some View {
-                AboutView(viewModel: AboutViewModel())
-                
-            
-    }
-}
+struct AboutView: View {
+    @StateObject var viewModel = AboutViewModel()
 
+    var body: some View {
+        VStack {
+            Text(viewModel.state.aboutTitle)
+                .textTitle()
+            Spacer().frame(height: 16)
+            
+            ScrollView {
+                
+                Text(viewModel.state.aboutScreenDescription)
+                    .textBodyPrimary()
+                
+                InfoItemColumn(
+                    infoItems: viewModel.state.infoItems,
+                    onClick: { infoItem in
+                        viewModel.onInfoItemTapped(infoItem: infoItem)
+                    }
+                )
+
+                Spacer().frame(height: 32)
+
+                Text(viewModel.state.socialMediaTitle)
+                    .font(.title)
+                    .padding(.horizontal)
+
+                Spacer().frame(height: 16)
+
+
+                Text(viewModel.state.donateDescription)
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }
+        }
+    }
+    
+    struct InfoItemRow: View {
+        var infoItem: InfoItem
+        var onClick: () -> Void
+        
+        var body: some View {
+            HStack {
+                ButtonWithIconAndText(text: infoItem.text, imageName: infoItem.iconID, action: onClick)
+            }
+        }
+    }
+    
+    struct InfoItemColumn: View {
+        var infoItems: [InfoItem]
+        var onClick: (InfoItem) -> Void
+        
+        var body: some View {
+            VStack(spacing: 16) {
+                
+                ForEach(infoItems) { infoItem in
+                    InfoItemRow(
+                        infoItem: infoItem,
+                        onClick: { self.onClick(infoItem) }
+                    )
+                }
+                                   
+            }
+        }
+    }
+}
