@@ -9,23 +9,55 @@ import SwiftUI
 
 struct DonateButton: View {
     var body: some View {
-        Button(action: {
-            if let url = URL(string: DONATE_URL) {
-                UIApplication.shared.open(url)
-            }
-        }) {
+        HStack {
+//            Button(action: {
+//                        if let url = URL(string: DONATE_URL) {
+//                            UIApplication.shared.open(url)
+//                        }
+//                    }) {
+//                        Text(DONATE_BUTTON_TEXT)
+//                            .textTitle()
+//                            .background(Color(CustomColor.PrimaryColor!))
+//                            .foregroundColor(Color(CustomColor.OnSurface!))
+////                            .cornerRadius(15)
+////                            .overlay(
+////                                RoundedRectangle(cornerRadius: 15)
+////                                    .stroke(Color(CustomColor.OnSurface!), lineWidth: 1.5)
+////                            )
+//                            .frame(maxWidth: .infinity)
+//                    }.frame(maxWidth: .infinity).buttonStyle(DonateButtonStyle())
+//                
             Text(DONATE_BUTTON_TEXT)
                 .textTitle()
                 .background(Color(CustomColor.PrimaryColor!))
                 .foregroundColor(Color(CustomColor.OnSurface!))
-                .cornerRadius(15)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(CustomColor.OnSurface!), lineWidth: 1.5)
-                )
+                .frame(maxWidth: .infinity)
+            Spacer()
+            
+            
+        }.contentShape(Rectangle()).onTapGesture {
+            if let url = URL(string: DONATE_URL) {
+                UIApplication.shared.open(url)
+            }
         }
+        
     }
 }
+
+
+struct DonateButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background(configuration.isPressed ? Color(CustomColor.PrimaryColor!).opacity(0.8) : Color(CustomColor.PrimaryColor!))
+            .cornerRadius(15)
+            .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(Color(CustomColor.OnSurface!), lineWidth: 1.5)
+            )
+    }
+}
+
+
 
 #Preview {
     DonateButton()

@@ -11,19 +11,18 @@ import Foundation
 struct ButtonWithIconAndText: View {
     var text: String
     var imageName: String
-    //var imageColor: Color
     var action: () -> Void
     
     var body: some View {
         Button(action: action) {
             HStack {
-                Image(systemName: imageName)
-                    //.foregroundColor(imageColor)
+                Image(imageName)
+                    .iconFormat()
                 Text(text)
-                    .textHyperLink()
+                    .textHyperLink().multilineTextAlignment(TextAlignment.leading)
             }
             .padding()
-            .background() // background color
+            .background(Color(CustomColor.BackgroundColor!)) // background color
             .cornerRadius(8)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)

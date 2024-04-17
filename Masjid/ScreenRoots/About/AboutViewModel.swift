@@ -10,7 +10,8 @@ struct AboutViewState {
     let infoItems: [InfoItem]
 }
 
-struct SocialMedia {
+struct SocialMedia: Identifiable {
+    let id = UUID()
     let iconID: String
     let URL: String
     let tint: Color
@@ -106,7 +107,7 @@ func createAboutViewState() -> AboutViewState {
             InfoItem(
                 iconID: "baseline_address_on_24",
                 text: ADDRESS_TEXT,
-                URL: GOOGLE_MAPS_ADDRESS_URL,
+                URL: APPLE_MAPS_ADDRESS_URL,
                 data: "",
                 type: .ADDRESS
             ),

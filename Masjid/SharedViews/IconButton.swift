@@ -10,11 +10,11 @@ import SwiftUI
 struct IconButton: View {
     var imageName: String
     var imageColor: Color
-    var action: () -> Void
+    var onClick: () -> Void
     
     var body: some View {
-        Button(action: action) {
-            Image(systemName: imageName)
+        Button(action: onClick) {
+            Image(imageName)
                 .foregroundColor(imageColor)
         }
     }

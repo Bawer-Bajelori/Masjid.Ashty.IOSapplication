@@ -27,8 +27,10 @@ struct ServicesView: View {
                     ExpandableCard(service: service)
                 }
             }
+            .frame(maxWidth: .infinity)
         }
         .background(Color(CustomColor.BackgroundColor! ))
+        .frame(maxWidth: .infinity)
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
     }
 }
