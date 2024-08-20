@@ -9,39 +9,40 @@ import SwiftUI
 
 struct DonateButton: View {
     var body: some View {
-        HStack {
-//            Button(action: {
-//                        if let url = URL(string: DONATE_URL) {
-//                            UIApplication.shared.open(url)
-//                        }
-//                    }) {
-//                        Text(DONATE_BUTTON_TEXT)
-//                            .textTitle()
-//                            .background(Color(CustomColor.PrimaryColor!))
-//                            .foregroundColor(Color(CustomColor.OnSurface!))
-////                            .cornerRadius(15)
-////                            .overlay(
-////                                RoundedRectangle(cornerRadius: 15)
-////                                    .stroke(Color(CustomColor.OnSurface!), lineWidth: 1.5)
-////                            )
-//                            .frame(maxWidth: .infinity)
-//                    }.frame(maxWidth: .infinity).buttonStyle(DonateButtonStyle())
-//                
-            Text(DONATE_BUTTON_TEXT)
-                .textTitle()
-                .background(Color(CustomColor.PrimaryColor!))
-                .foregroundColor(Color(CustomColor.OnSurface!))
-                .frame(maxWidth: .infinity)
-            Spacer()
-            
-            
-        }.contentShape(Rectangle()).onTapGesture {
+        Button(action: {
             if let url = URL(string: DONATE_URL) {
                 UIApplication.shared.open(url)
             }
+        }) {
+            Text("DONATE")
+                .textTitle()
+                .frame(maxWidth: .infinity)
+                .padding()
+                
         }
-        
+        .background(Color(CustomColor.PrimaryColor!))
+        .cornerRadius(15)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(Color(CustomColor.OnBackground!), lineWidth: 1.5)
+        )
+        .frame(maxWidth: .infinity)
     }
+    
+    //    var body: some View {
+//        HStack {
+//            Text(DONATE_BUTTON_TEXT)
+//                .textTitle()
+//                .background(Color(CustomColor.PrimaryColor!))
+//                .foregroundColor(Color(CustomColor.OnSurface!))
+//                .frame(maxWidth: .infinity)
+//        }.contentShape(Rectangle()).onTapGesture {
+//            if let url = URL(string: DONATE_URL) {
+//                UIApplication.shared.open(url)
+//            }
+//        }
+//        
+//    }
 }
 
 
@@ -56,8 +57,6 @@ struct DonateButtonStyle: ButtonStyle {
             )
     }
 }
-
-
 
 #Preview {
     DonateButton()

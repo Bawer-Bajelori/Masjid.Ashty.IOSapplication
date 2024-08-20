@@ -37,31 +37,20 @@ class AboutViewModel: ObservableObject {
     @Published var state: AboutViewState = createAboutViewState()
     
     func onEmailTapped(email: String) {
-        
-        print("Lawand " + email)
-        
         if let url = URL(string: "mailto:\(email)") {
-            print("Lawand Are we in here")
             UIApplication.shared.open(url)
         }
     }
     
     func onPhoneNumberTapped(number: String) {
-        
-        print("Lawand " + number)
-        
         guard let url = URL(string: "telprompt://\(number)") else { return }
         UIApplication.shared.open(url)
         if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
-            print("Lawand Are we in here")
-            print(url)
-            
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
         
     func onWebLinkTapped(urlString: String) {
-        
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
         }

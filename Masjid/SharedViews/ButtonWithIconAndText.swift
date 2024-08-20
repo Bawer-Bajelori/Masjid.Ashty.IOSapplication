@@ -26,7 +26,7 @@ struct ButtonWithIconAndText: View {
             .cornerRadius(8)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.primary, lineWidth: 1.5)
+                    .stroke(Color.primary, lineWidth: 0)
             )
         }
     }

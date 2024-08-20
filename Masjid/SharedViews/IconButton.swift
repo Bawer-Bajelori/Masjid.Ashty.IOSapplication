@@ -15,7 +15,11 @@ struct IconButton: View {
     var body: some View {
         Button(action: onClick) {
             Image(imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 64, height: 64)
                 .foregroundColor(imageColor)
+
         }
     }
 }

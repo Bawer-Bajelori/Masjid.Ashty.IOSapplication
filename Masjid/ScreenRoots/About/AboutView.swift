@@ -41,7 +41,12 @@ struct AboutView: View {
             }
             .frame(maxWidth: .infinity)
             
-            DonateButton()
+            HStack{
+                DonateButton()
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            
         }
         .background(Color(CustomColor.BackgroundColor! ))
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
@@ -82,9 +87,10 @@ struct AboutView: View {
         
         var body: some View {
             HStack(alignment: VerticalAlignment.center) {
-                
+                Spacer()
                 ForEach(socialMedia) { socialMedia in
                     IconButton(imageName: socialMedia.iconID, imageColor: socialMedia.tint, onClick: { self.onClick(socialMedia.URL)} )
+                    Spacer()
                 }
             }
         }
