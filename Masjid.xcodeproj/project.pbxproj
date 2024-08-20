@@ -29,6 +29,13 @@
 		4AE6F03E29792A39004429C5 /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03D29792A39004429C5 /* VideosView.swift */; };
 		4AE6F04029792A68004429C5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03F29792A68004429C5 /* CalendarView.swift */; };
 		4AE6F047297B9C64004429C5 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F046297B9C64004429C5 /* AboutViewModel.swift */; };
+		850F569D2BC138DD0036FD5E /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F56982BC138DD0036FD5E /* LoadingScreen.swift */; };
+		850F569E2BC138DD0036FD5E /* DonateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F56992BC138DD0036FD5E /* DonateButton.swift */; };
+		850F569F2BC138DD0036FD5E /* ErrorMessageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F569A2BC138DD0036FD5E /* ErrorMessageScreen.swift */; };
+		850F56A02BC138DD0036FD5E /* ButtonWithIconAndText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F569B2BC138DD0036FD5E /* ButtonWithIconAndText.swift */; };
+		850F56A12BC138DD0036FD5E /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F569C2BC138DD0036FD5E /* IconButton.swift */; };
+		850F56A32BC139F50036FD5E /* Contsants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F56A22BC139F50036FD5E /* Contsants.swift */; };
+		850F56A52BC149DA0036FD5E /* IconFormatModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850F56A42BC149DA0036FD5E /* IconFormatModifiers.swift */; };
 		85D6DD4E2AE8C60A00F8E782 /* ServicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6DD4D2AE8C60A00F8E782 /* ServicesViewModel.swift */; };
 		85EC563B2AF5DD6500C27530 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC563A2AF5DD6500C27530 /* Text.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +84,13 @@
 		4AE6F03D29792A39004429C5 /* VideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosView.swift; sourceTree = "<group>"; };
 		4AE6F03F29792A68004429C5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		4AE6F046297B9C64004429C5 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		850F56982BC138DD0036FD5E /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		850F56992BC138DD0036FD5E /* DonateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateButton.swift; sourceTree = "<group>"; };
+		850F569A2BC138DD0036FD5E /* ErrorMessageScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageScreen.swift; sourceTree = "<group>"; };
+		850F569B2BC138DD0036FD5E /* ButtonWithIconAndText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithIconAndText.swift; sourceTree = "<group>"; };
+		850F569C2BC138DD0036FD5E /* IconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		850F56A22BC139F50036FD5E /* Contsants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contsants.swift; sourceTree = "<group>"; };
+		850F56A42BC149DA0036FD5E /* IconFormatModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormatModifiers.swift; sourceTree = "<group>"; };
 		85D6DD4D2AE8C60A00F8E782 /* ServicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewModel.swift; sourceTree = "<group>"; };
 		85EC563A2AF5DD6500C27530 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +132,7 @@
 		4A0E61EA29B303F600326DCC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				850F56A22BC139F50036FD5E /* Contsants.swift */,
 				4A0E61EB29B3043700326DCC /* Colors.swift */,
 			);
 			path = Utilities;
@@ -247,7 +262,13 @@
 		85EC56392AF5DD2800C27530 /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
+				850F569B2BC138DD0036FD5E /* ButtonWithIconAndText.swift */,
+				850F56992BC138DD0036FD5E /* DonateButton.swift */,
+				850F569A2BC138DD0036FD5E /* ErrorMessageScreen.swift */,
+				850F569C2BC138DD0036FD5E /* IconButton.swift */,
+				850F56982BC138DD0036FD5E /* LoadingScreen.swift */,
 				85EC563A2AF5DD6500C27530 /* Text.swift */,
+				850F56A42BC149DA0036FD5E /* IconFormatModifiers.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -382,15 +403,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850F56A12BC138DD0036FD5E /* IconButton.swift in Sources */,
+				850F569D2BC138DD0036FD5E /* LoadingScreen.swift in Sources */,
 				4A0E61E929B03C1600326DCC /* ServicesView.swift in Sources */,
+				850F569E2BC138DD0036FD5E /* DonateButton.swift in Sources */,
 				4A0E61F329D5542B00326DCC /* APIClient.swift in Sources */,
 				4A0E42C9297F998300270060 /* CalendarViewModel.swift in Sources */,
+				850F56A52BC149DA0036FD5E /* IconFormatModifiers.swift in Sources */,
+				850F56A02BC138DD0036FD5E /* ButtonWithIconAndText.swift in Sources */,
 				4A15C70C2970F64F00DA6DD0 /* Masjid.xcdatamodeld in Sources */,
 				4A0E61EC29B3043700326DCC /* Colors.swift in Sources */,
 				4A0E61EE29D5428000326DCC /* API.swift in Sources */,
 				85EC563B2AF5DD6500C27530 /* Text.swift in Sources */,
 				4A15C7072970F64F00DA6DD0 /* MasjidApp.swift in Sources */,
+				850F569F2BC138DD0036FD5E /* ErrorMessageScreen.swift in Sources */,
 				4AE6F04029792A68004429C5 /* CalendarView.swift in Sources */,
+				850F56A32BC139F50036FD5E /* Contsants.swift in Sources */,
 				85D6DD4E2AE8C60A00F8E782 /* ServicesViewModel.swift in Sources */,
 				4A0E42C5297F994800270060 /* HomeViewModel.swift in Sources */,
 				4A0E61F129D54DC400326DCC /* APITypes.swift in Sources */,
@@ -555,6 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Masjid/Preview Content\"";
+				DEVELOPMENT_TEAM = D73T26X24L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -591,6 +620,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Masjid/Preview Content\"";
+				DEVELOPMENT_TEAM = D73T26X24L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

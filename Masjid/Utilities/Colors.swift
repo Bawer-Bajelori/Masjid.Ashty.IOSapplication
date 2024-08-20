@@ -14,4 +14,6 @@ enum CustomColor {
     static let PrimaryVariant = UIColor(named: "PrimaryVariant")
     static let OnBackground = UIColor(named: "onBackground")
     static let OnSurface = UIColor(named: "onSurface")
+    static let YoutubeRed = UIColor(named: "YoutubeRed")
+    static let FacebookBlue = UIColor(named: "FacebookBlue")
 }

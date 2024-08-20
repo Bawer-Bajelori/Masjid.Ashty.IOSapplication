@@ -1,70 +1,126 @@
 import SwiftUI
+import Foundation
 
+struct AboutViewState {
+    let aboutTitle: String
+    let socialMediaTitle: String
+    let donateDescription: String
+    let aboutScreenDescription: String
+    let socialMedia: [SocialMedia]
+    let infoItems: [InfoItem]
+}
 
-enum SocialMediaType: String {
-    case facebook = "Facebook"
-    case youtube = "YouTube"
+struct SocialMedia: Identifiable {
+    let id = UUID()
+    let iconID: String
+    let URL: String
+    let tint: Color
+}
 
-    var iconName: String {
-        switch self {
-        case .facebook:
-            return "Facebook-icon"
-        case .youtube:
-            return "Youtube-icon"
+struct InfoItem: Identifiable{
+    let id = UUID()
+    let iconID: String
+    let text: String
+    let URL: String
+    let data: String
+    let type: InfoItemType
+}
+
+enum InfoItemType {
+    case ADDRESS
+    case WEBSITE
+    case EMAIL
+    case PHONE
+}
+
+class AboutViewModel: ObservableObject {
+    @Published var state: AboutViewState = createAboutViewState()
+    
+    func onEmailTapped(email: String) {
+        if let url = URL(string: "mailto:\(email)") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func onPhoneNumberTapped(number: String) {
+        guard let url = URL(string: "telprompt://\(number)") else { return }
+        UIApplication.shared.open(url)
+        if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+        
+    func onWebLinkTapped(urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func onInfoItemTapped(infoItem: InfoItem) {
+        let type = infoItem.type
+        let url = infoItem.URL
+        let data = infoItem.data
+        
+        switch type {
+        case InfoItemType.EMAIL:
+            onEmailTapped(email: data)
+        case InfoItemType.PHONE:
+            onPhoneNumberTapped(number: data)
+        default:
+            onWebLinkTapped(urlString: url)
         }
     }
 }
 
-struct AboutViewModel {
-    var state: AboutViewState
-
-    init() {
-        state = createState()
-    }
-}
-
-struct AboutViewState {
-    var title: String
-    var subtitle: String
-    var infoItemList: [InfoItem]
-    var socialMediaList: [SocialMediaItem]
-    var donationText: String
-    var donationLink: String
-}
-
-
-enum InfoItemType {
-    case address, website, email, phone
-}
-
-struct InfoItem: Identifiable {
-    let id = UUID()
-    var type: InfoItemType
-    var displayText: String
-}
-
-struct SocialMediaItem: Identifiable {
-    let id = UUID()
-    var type: SocialMediaType
-    var URL: String
-}
-
-func createState() -> AboutViewState {
+func createAboutViewState() -> AboutViewState {
     return AboutViewState(
-        title: "Kurdish Community Islamic Center",
-        subtitle: "For more information, please contact us at:",
-        infoItemList: [
-            InfoItem(type: .address, displayText: "1357 Broadway, El Cajon, California 92021, United States"),
-            InfoItem(type: .website, displayText: "masjidashty.com"),
-            InfoItem(type: .email, displayText: "masjidashty2010@hotmail.com"),
-            InfoItem(type: .phone, displayText: "(619)442-4435")
+        aboutTitle: "KURDISH COMMUNITY ISLAMIC CENTER",
+        socialMediaTitle: "Socials",
+        donateDescription: "Dear brothers and sisters you can make your donation online for: \n" +
+        "\n" +
+        "1- Masjid Expansion\n" +
+        "\n" +
+        "2- Masjid Operation\n" +
+        "\n" +
+        "3- The Needy\n" +
+        "\n" +
+        "4- Zakat Al Fitr\n" +
+        "\n" +
+        "5- Zakat Al Mal",
+        aboutScreenDescription: "For more Information about events, services, and more,\n" + "Please Contact Us at:",
+        socialMedia: [
+            SocialMedia(iconID: "youtube_logo", URL: YOUTUBE_URL, tint: Color(CustomColor.YoutubeRed!)),
+            SocialMedia(iconID: "facebook_logo", URL: FACEBOOK_URL, tint: Color(CustomColor.FacebookBlue!))
         ],
-        socialMediaList: [
-            SocialMediaItem(type: .youtube, URL: "https://www.youtube.com/@AlSalamAshty"),
-            SocialMediaItem(type: .facebook, URL: "https://www.facebook.com/people/Mizgaft-Ashty/100068623803799/")
-        ],
-        donationText:"Dear brother and sister you can make your donation online for \n\n 1- Masjid Expansion \n\n 2- Masjid Operation \n\n 3- Needy \n\n 4- Zakat Al Fitr\n\n 5-Zakat Al Mal",
-        donationLink: "https://goodbricksapp.com/masjidashty.com/donate"
-        
+        infoItems: [
+            InfoItem(
+                iconID: "baseline_address_on_24",
+                text: ADDRESS_TEXT,
+                URL: APPLE_MAPS_ADDRESS_URL,
+                data: "",
+                type: .ADDRESS
+            ),
+            InfoItem(
+                iconID: "baseline_website_24",
+                text: WEBSITE_TEXT,
+                URL: WEBSITE_URL,
+                data: "",
+                type: .WEBSITE
+            ),
+            InfoItem(
+                iconID: "baseline_email_24",
+                text: EMAIL_TEXT,
+                URL: "",
+                data: EMAIL_DATA,
+                type: .EMAIL
+            ),
+            InfoItem(
+                iconID: "baseline_phone_24",
+                text: PHONE_TEXT,
+                URL: "",
+                data: PHONE_DATA,
+                type: .PHONE
+            )
+        ]
     )
 }
