@@ -9,7 +9,13 @@ import SwiftUI
 
 struct LoadingScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(CustomColor.BackgroundColor!)
+            
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: Color(CustomColor.PrimaryColor!)))
+                .scaleEffect(2, anchor: .center)
+        }
     }
 }
 
