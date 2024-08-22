@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftSoup
 
 struct HomeViewState {
     let prayerTimes: [PrayerTime]
@@ -86,6 +87,47 @@ class HomeViewModel: ObservableObject {
         fetchPrayerData()
     }
     
+    func scrapeIqamaTimes(completion: @escaping (Result<String, Error>) -> Void) {
+        // Validate the URL
+        guard let url = URL(string: IQAMA_TIME_URL) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 1, userInfo: nil)))
+            return
+        }
+
+        // Asynchronously fetch the webpage content using URLSession
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            // Handle network error
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            // Ensure we have data and can decode it as a UTF-8 string
+            guard let data = data, let html = String(data: data, encoding: .utf8) else {
+                completion(.failure(NSError(domain: "Invalid Data", code: 2, userInfo: nil)))
+                return
+            }
+
+            do {
+                // Parse the HTML using SwiftSoup
+                let document = try SwiftSoup.parse(html)
+
+                // Extract all text from the document
+                let bodyText = try document.text()
+
+                // Return the extracted text via the completion handler
+                completion(.success(bodyText))
+            } catch {
+                // Handle parsing errors
+                completion(.failure(error))
+            }
+        }
+
+        // Start the network task
+        task.resume()
+    }
+    
+    
     private func fetchPrayerData() {
         API.Client.shared.get(.prayerTime(
             city: CITY_PARAM,
@@ -97,6 +139,16 @@ class HomeViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result{
                 case .success(let success):
+                    self?.scrapeIqamaTimes{ result in
+                        switch result{
+                        case .success(let text):
+                            print(text)
+                            
+                        case .failure(let error):
+                            print("error fetching web page \(error.localizedDescription)")
+                            
+                        }
+                    }
                     let prayerTimes = [
                         PrayerTime(type: .fajr, prayerTime: success.data.timings.Fajr, iqamaTime: nil),
                         PrayerTime(type: .sunrise, prayerTime: success.data.timings.Sunrise, iqamaTime: nil),
@@ -116,8 +168,11 @@ class HomeViewModel: ObservableObject {
                         prayerTimes: [],
                         loadingState: LoadingState.error
                     )
+                    
+                    }
                 }
             }
         }
+    
     }
-}
+

@@ -24,6 +24,7 @@
 		4A15C7282970F65300DA6DD0 /* MasjidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C7272970F65300DA6DD0 /* MasjidUITests.swift */; };
 		4A15C72A2970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15C7292970F65300DA6DD0 /* MasjidUITestsLaunchTests.swift */; };
 		4A70D487298C4D0F0094912A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A70D486298C4D0F0094912A /* ContentView.swift */; };
+		4A75584F2C76E89500B9FAF9 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 4A75584E2C76E89500B9FAF9 /* SwiftSoup */; };
 		4AE6F03A297928CC004429C5 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F039297928CC004429C5 /* AboutView.swift */; };
 		4AE6F03C29792A06004429C5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03B29792A06004429C5 /* HomeView.swift */; };
 		4AE6F03E29792A39004429C5 /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE6F03D29792A39004429C5 /* VideosView.swift */; };
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A75584F2C76E89500B9FAF9 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +291,9 @@
 			dependencies = (
 			);
 			name = Masjid;
+			packageProductDependencies = (
+				4A75584E2C76E89500B9FAF9 /* SwiftSoup */,
+			);
 			productName = Masjid;
 			productReference = 4A15C7032970F64F00DA6DD0 /* Masjid.app */;
 			productType = "com.apple.product-type.application";
@@ -361,6 +366,9 @@
 				Base,
 			);
 			mainGroup = 4A15C6FA2970F64E00DA6DD0;
+			packageReferences = (
+				4A75584D2C76E89500B9FAF9 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 4A15C7042970F64F00DA6DD0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -774,6 +782,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A75584D2C76E89500B9FAF9 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A75584E2C76E89500B9FAF9 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A75584D2C76E89500B9FAF9 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4A15C70A2970F64F00DA6DD0 /* Masjid.xcdatamodeld */ = {
