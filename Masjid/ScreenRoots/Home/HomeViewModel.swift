@@ -93,7 +93,7 @@ class HomeViewModel: ObservableObject {
             completion(.failure(NSError(domain: "Invalid URL", code: 1, userInfo: nil)))
             return
         }
-
+        
         // Asynchronously fetch the webpage content using URLSession
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             // Handle network error
@@ -101,28 +101,29 @@ class HomeViewModel: ObservableObject {
                 completion(.failure(error))
                 return
             }
-
+            
             // Ensure we have data and can decode it as a UTF-8 string
             guard let data = data, let html = String(data: data, encoding: .utf8) else {
                 completion(.failure(NSError(domain: "Invalid Data", code: 2, userInfo: nil)))
                 return
             }
-
+            
             do {
                 // Parse the HTML using SwiftSoup
                 let document = try SwiftSoup.parse(html)
-
+                
                 // Extract all text from the document
                 let bodyText = try document.text()
-
+                
                 // Return the extracted text via the completion handler
                 completion(.success(bodyText))
+                
             } catch {
                 // Handle parsing errors
                 completion(.failure(error))
             }
         }
-
+        
         // Start the network task
         task.resume()
     }
@@ -135,6 +136,7 @@ class HomeViewModel: ObservableObject {
             country: COUNTRY_PARAM,
             method: METHOD_PARAM,
             iso8601: ISO8601_PARAM
+            
         )) { [weak self] (result: Result<API.Types.Response.PrayerTimes, API.Types.Error>) in
             DispatchQueue.main.async {
                 switch result{
@@ -142,37 +144,50 @@ class HomeViewModel: ObservableObject {
                     self?.scrapeIqamaTimes{ result in
                         switch result{
                         case .success(let text):
-                            print(text)
+                            StringUtils.parseIqamaTimes(text)
+                            let iqamaMap = StringUtils.iqamaTimesMap
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            let prayerTimes = [
+                                PrayerTime(type: .fajr, prayerTime: success.data.timings.Fajr, iqamaTime: iqamaMap[.fajr]),
+                                PrayerTime(type: .sunrise, prayerTime: success.data.timings.Sunrise, iqamaTime: nil),
+                                PrayerTime(type: .dhuhr, prayerTime: success.data.timings.Dhuhr, iqamaTime: iqamaMap[.dhuhr ]),
+                                PrayerTime(type: .asr, prayerTime: success.data.timings.Asr, iqamaTime: iqamaMap[.asr]),
+                                PrayerTime(type: .maghrib, prayerTime: success.data.timings.Maghrib, iqamaTime: iqamaMap[.maghrib]),
+                                PrayerTime(type: .isha, prayerTime: success.data.timings.Isha, iqamaTime: iqamaMap[.isha])
+                            ]
+                            
+                            
+                            self?.state = HomeViewState(
+                                prayerTimes: prayerTimes,
+                                loadingState: LoadingState.success
+                            )
+                            
                             
                         case .failure(let error):
                             print("error fetching web page \(error.localizedDescription)")
                             
                         }
                     }
-                    let prayerTimes = [
-                        PrayerTime(type: .fajr, prayerTime: success.data.timings.Fajr, iqamaTime: nil),
-                        PrayerTime(type: .sunrise, prayerTime: success.data.timings.Sunrise, iqamaTime: nil),
-                        PrayerTime(type: .dhuhr, prayerTime: success.data.timings.Dhuhr, iqamaTime: nil),
-                        PrayerTime(type: .asr, prayerTime: success.data.timings.Asr, iqamaTime: nil),
-                        PrayerTime(type: .maghrib, prayerTime: success.data.timings.Maghrib, iqamaTime: nil),
-                        PrayerTime(type: .isha, prayerTime: success.data.timings.Isha, iqamaTime: nil)
-                    ]
-                    
-                    self?.state = HomeViewState(
-                        prayerTimes: prayerTimes,
-                        loadingState: LoadingState.success
-                    )
-                    
-                case .failure(_):
-                    self?.state = HomeViewState(
-                        prayerTimes: [],
-                        loadingState: LoadingState.error
-                    )
-                    
+                            
+                        case .failure(_):
+                            self?.state = HomeViewState(
+                                prayerTimes: [],
+                                loadingState: LoadingState.error
+                            )
+                            
+                            
+                            
+                        }
                     }
                 }
             }
+            
         }
+        
     
-    }
-
