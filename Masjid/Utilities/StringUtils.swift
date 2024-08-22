@@ -16,41 +16,47 @@ class StringUtils {
         let words = text.split(separator: " ").map { String($0) }
         
         for (index, word) in words.enumerated() {
-            let nextWord = index < words.count - 1 ? words[index + 1] : ""
+            let nextWord = index < words.count - 1 ? words[index + 1].trimmingCharacters(in: .whitespacesAndNewlines) : ""
+            print("Processing word: \(word), nextWord: \(nextWord)") // Debugging line
+            
             switch word.lowercased() {
             case "fajir", "fajr":
                 if validateIqamaTime(nextWord) {
+                    print("Fajr time found: \(nextWord) AM") // Debugging line
                     iqamaTimesMap[.fajr] = "\(nextWord) AM"
                 }
             case "zhur", "dhuhr", "dhur", "zhuhr", "zuhr":
                 if validateIqamaTime(nextWord) {
-                    if nextWord[nextWord.index(nextWord.startIndex, offsetBy: 1)] == ":" {
-                        iqamaTimesMap[.dhuhr] = "\(nextWord) PM"
-                    } else {
-                        iqamaTimesMap[.dhuhr] = "\(nextWord) AM"
-                    }
+                    let time = nextWord[nextWord.index(nextWord.startIndex, offsetBy: 1)] == ":" ? "\(nextWord) PM" : "\(nextWord) AM"
+                    print("Dhuhr time found: \(time)") // Debugging line
+                    iqamaTimesMap[.dhuhr] = time
                 }
             case "asr":
                 if validateIqamaTime(nextWord) {
+                    print("Asr time found: \(nextWord) PM") // Debugging line
                     iqamaTimesMap[.asr] = "\(nextWord) PM"
                 }
             case "maghrib", "maghreb":
                 if validateIqamaTime(nextWord) || nextWord.lowercased() == "sunset" {
+                    print("Maghrib time found: \(nextWord)") // Debugging line
                     iqamaTimesMap[.maghrib] = nextWord
                 }
             case "isha", "isha'a", "esha", "esha'a":
                 if validateIqamaTime(nextWord) {
+                    print("Isha time found: \(nextWord) PM") // Debugging line
                     iqamaTimesMap[.isha] = "\(nextWord) PM"
                 }
             case "khutba", "khutbah", "khutbah#", "khutba#":
                 addKhutbahTime(words, index: index)
             default:
+                print("Word not matched: \(word)") // Debugging line
                 break
             }
         }
         
         return iqamaTimesMap
     }
+
     
     static func validateIqamaTime(_ time: String) -> Bool {
         let size = time.count

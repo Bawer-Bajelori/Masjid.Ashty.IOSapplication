@@ -135,7 +135,7 @@ struct PrayerTimeTableLegend: View {
                 .textBodyPrimary(fontWeight: Font.Weight.bold)
                 .frame(maxWidth: .infinity, alignment: Alignment.trailing)
         }
-        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+        .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
     }
 }
 
@@ -146,16 +146,18 @@ struct PrayerTimeRow: View {
         HStack {
             Text(prayerTime.type.prayerName)
                 .textBodyPrimary()
-                .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 0))
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             Text(prayerTime.prayerTime)
                 .textBodyPrimary()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
+                .frame(maxWidth: .infinity, alignment: .center)
             Spacer()
             Text(prayerTime.iqamaTime ?? "")
                 .textBodyPrimary()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
+                .frame(maxWidth: .infinity, alignment: .trailing)
         }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 16)
     }
 }
 

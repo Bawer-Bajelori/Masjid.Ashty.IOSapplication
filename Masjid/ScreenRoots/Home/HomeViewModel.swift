@@ -156,7 +156,7 @@ class HomeViewModel: ObservableObject {
                             let prayerTimes = [
                                 PrayerTime(type: .fajr, prayerTime: success.data.timings.Fajr, iqamaTime: iqamaMap[.fajr]),
                                 PrayerTime(type: .sunrise, prayerTime: success.data.timings.Sunrise, iqamaTime: nil),
-                                PrayerTime(type: .dhuhr, prayerTime: success.data.timings.Dhuhr, iqamaTime: iqamaMap[.dhuhr ]),
+                                PrayerTime(type: .dhuhr, prayerTime: success.data.timings.Dhuhr, iqamaTime: iqamaMap[.dhuhr]),
                                 PrayerTime(type: .asr, prayerTime: success.data.timings.Asr, iqamaTime: iqamaMap[.asr]),
                                 PrayerTime(type: .maghrib, prayerTime: success.data.timings.Maghrib, iqamaTime: iqamaMap[.maghrib]),
                                 PrayerTime(type: .isha, prayerTime: success.data.timings.Isha, iqamaTime: iqamaMap[.isha])
