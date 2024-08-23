@@ -26,6 +26,8 @@ struct HomeView: View {
             HomeViewSuccess(state: viewModel.state)
         }
     }
+    
+    
 }
 
 struct HomeViewSuccess: View {
@@ -33,6 +35,14 @@ struct HomeViewSuccess: View {
     
     var body: some View {
         VStack {
+            // Define the KhutbahTimesView in your View file
+            KhutbahTimesView(
+                khutbah1Time: state.khutbah1Time,
+                khutbah2Time: state.khutbah2Time
+            )
+            .padding(.bottom, 2 )
+            
+            // Display the PrayerTimeCard below KhutbahTimesView
             PrayerTimeCard(
                 prayerTimes: state.prayerTimes,
                 prayerColumnTitle: state.prayerColumnTitle,
@@ -45,6 +55,46 @@ struct HomeViewSuccess: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
+// Define the KhutbahTimesView struct here in the View file.
+struct KhutbahTimesView: View {
+    var khutbah1Time: String
+    var khutbah2Time: String
+    
+    var body: some View {
+        ZStack{
+            RoundedBorderShape(cornerRadius: 5)
+                .stroke(Color.blue, lineWidth: 1)
+                           .background(Color.black.opacity(0.7).cornerRadius(5))
+                           .frame(height: 70)
+            
+            VStack  {
+                Text("Friday Khutbah")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 1)
+                HStack{
+                    
+                    
+                    Text("English/Arabic: \(khutbah1Time)")
+                        .font(.subheadline)
+                        .padding(.bottom, 1)
+                    
+                    
+                    
+                    Text(" Kurdish/English: \(khutbah2Time)")
+                        .font(.subheadline)
+                        .padding(.bottom, 1)
+                    
+                }
+            }
+            
+        }
+        .padding()
+    }
+}
+
+
 
 struct CardView<Content: View>: View {
     let content: Content
@@ -129,7 +179,7 @@ struct PrayerTimeTableLegend: View {
             Spacer()
             Text(athanColumnTitle)
                 .textBodyPrimary(fontWeight: Font.Weight.bold)
-                .frame(maxWidth: .infinity, alignment: Alignment.trailing)
+                .frame(maxWidth: .infinity, alignment: Alignment.center)
             Spacer()
             Text(iqamaColumnTitle)
                 .textBodyPrimary(fontWeight: Font.Weight.bold)
@@ -156,7 +206,7 @@ struct PrayerTimeRow: View {
                 .textBodyPrimary()
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 3)
         .padding(.horizontal, 16)
     }
 }

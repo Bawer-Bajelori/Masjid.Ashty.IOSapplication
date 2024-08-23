@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class StringUtils {
     
     public static var iqamaTimesMap: [PrayerType: String] = [:]
@@ -38,23 +37,76 @@ class StringUtils {
                 }
             case "maghrib", "maghreb":
                 if validateIqamaTime(nextWord) || nextWord.lowercased() == "sunset" {
-                    print("Maghrib time found: \(nextWord)") // Debugging line
-                    iqamaTimesMap[.maghrib] = nextWord
+                    let maghribTime = nextWord.lowercased() == "sunset" ? "Sunset" : nextWord
+                    print("Maghrib time found: \(maghribTime)") // Debugging line
+                    iqamaTimesMap[.maghrib] = maghribTime.capitalized
                 }
             case "isha", "isha'a", "esha", "esha'a":
                 if validateIqamaTime(nextWord) {
                     print("Isha time found: \(nextWord) PM") // Debugging line
                     iqamaTimesMap[.isha] = "\(nextWord) PM"
                 }
-            case "khutba", "khutbah", "khutbah#", "khutba#":
+            case "khutbah", "khutbah#", "khutba#", "khutba":
                 addKhutbahTime(words, index: index)
+                print("Khutbah times found: \(KhutbahTimesView.self)")
             default:
                 print("Word not matched: \(word)") // Debugging line
                 break
             }
         }
+            let khutbahRegex = try! NSRegularExpression(pattern: "KHUTBAH\\s*#\\s*([12])\\s*at\\s*(\\d{1,2}:\\d{2})", options: [.caseInsensitive])
+            let matches = khutbahRegex.matches(in: text, options: [], range: NSRange(text.startIndex..., in: text))
+            
+            for match in matches {
+                let khutbahNum = String(text[Range(match.range(at: 1), in: text)!])
+                let time = String(text[Range(match.range(at: 2), in: text)!])
+                
+                if khutbahNum == "1" {
+                    iqamaTimesMap[.khutbah1] = time
+                    print("Khutbah 1 time found: \(time)") // Debugging line
+                } else if khutbahNum == "2" {
+                    iqamaTimesMap[.khutbah2] = time
+                    print("Khutbah 2 time found: \(time)") // Debugging line
+                }
+            }
+            
+            return iqamaTimesMap
+        }
+    
+    
+    private static func addKhutbahTime(_ words: [String], index: Int) {
+        var khutbahNum = ""
         
-        return iqamaTimesMap
+        // Check if the word contains a # or if the next word does
+        if words[index].trimmingCharacters(in: .whitespacesAndNewlines).contains("#") {
+            khutbahNum = words[index + 1].trimmingCharacters(in: .whitespacesAndNewlines)
+        } else if words[index + 1].trimmingCharacters(in: .whitespacesAndNewlines) == "#" {
+            khutbahNum = words[index + 2].trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
+        // Ensure the khutbahNum is either "1" or "2"
+        if khutbahNum != "1" && khutbahNum != "2" {
+            print("Skipping: Not a valid Khutbah number \(khutbahNum)") // Debugging line
+            return
+        }
+        
+        // Now, let's search for the time
+        for i in index..<words.count {
+            let cleanWord = words[i].trimmingCharacters(in: .whitespacesAndNewlines)
+            if validateIqamaTime(cleanWord) {
+                switch khutbahNum {
+                case "1":
+                    iqamaTimesMap[.khutbah1] = cleanWord
+                    print("Khutbah 1 time found: \(cleanWord)") // Debugging line
+                case "2":
+                    iqamaTimesMap[.khutbah2] = cleanWord
+                    print("Khutbah 2 time found: \(cleanWord)") // Debugging line
+                default:
+                    break
+                }
+                break
+            }
+        }
     }
 
     
@@ -89,44 +141,5 @@ class StringUtils {
         }
         
         return true
-    }
-    
-    private static func addKhutbahTime(_ words: [String], index: Int) {
-        var khutbahNum = ""
-        
-        if words[index].last == "#" {
-            if words[index + 1] != "1" && words[index + 1] != "2" { return }
-            khutbahNum = words[index + 1]
-            for i in index + 2..<words.count {
-                if validateIqamaTime(words[i]) {
-                    switch khutbahNum {
-                    case "1":
-                        iqamaTimesMap[.khutbah1] = words[i]
-                    case "2":
-                        iqamaTimesMap[.khutbah2] = words[i]
-                    default:
-                        break
-                    }
-                    break
-                }
-            }
-        } else {
-            if words[index + 1] != "#" { return }
-            if words[index + 2] != "1" && words[index + 2] != "2" { return }
-            khutbahNum = words[index + 2]
-            for i in index + 3..<words.count {
-                if validateIqamaTime(words[i]) {
-                    switch khutbahNum {
-                    case "1":
-                        iqamaTimesMap[.khutbah1] = words[i]
-                    case "2":
-                        iqamaTimesMap[.khutbah2] = words[i]
-                    default:
-                        break
-                    }
-                    break
-                }
-            }
-        }
     }
 }

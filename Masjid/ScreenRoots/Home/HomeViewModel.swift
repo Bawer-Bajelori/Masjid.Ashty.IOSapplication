@@ -148,24 +148,21 @@ class HomeViewModel: ObservableObject {
                             let iqamaMap = StringUtils.iqamaTimesMap
                             
                             
-                            
-                            
-                            
-                            
-                            
                             let prayerTimes = [
-                                PrayerTime(type: .fajr, prayerTime: success.data.timings.Fajr, iqamaTime: iqamaMap[.fajr]),
-                                PrayerTime(type: .sunrise, prayerTime: success.data.timings.Sunrise, iqamaTime: nil),
-                                PrayerTime(type: .dhuhr, prayerTime: success.data.timings.Dhuhr, iqamaTime: iqamaMap[.dhuhr]),
-                                PrayerTime(type: .asr, prayerTime: success.data.timings.Asr, iqamaTime: iqamaMap[.asr]),
-                                PrayerTime(type: .maghrib, prayerTime: success.data.timings.Maghrib, iqamaTime: iqamaMap[.maghrib]),
-                                PrayerTime(type: .isha, prayerTime: success.data.timings.Isha, iqamaTime: iqamaMap[.isha])
+                                PrayerTime(type: .fajr, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Fajr) ?? success.data.timings.Fajr, iqamaTime: iqamaMap[.fajr]),
+                                PrayerTime(type: .sunrise, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Sunrise) ?? success.data.timings.Sunrise, iqamaTime: nil),
+                                PrayerTime(type: .dhuhr, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Dhuhr) ?? success.data.timings.Dhuhr, iqamaTime: iqamaMap[.dhuhr]),
+                                PrayerTime(type: .asr, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Asr) ?? success.data.timings.Asr, iqamaTime: iqamaMap[.asr]),
+                                PrayerTime(type: .maghrib, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Maghrib) ?? success.data.timings.Maghrib, iqamaTime: iqamaMap[.maghrib]),
+                                PrayerTime(type: .isha, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Isha) ?? success.data.timings.Isha, iqamaTime: iqamaMap[.isha])
                             ]
                             
                             
                             self?.state = HomeViewState(
                                 prayerTimes: prayerTimes,
-                                loadingState: LoadingState.success
+                                loadingState: LoadingState.success,
+                                khutbah1Time: iqamaMap[.khutbah1] ?? "",
+                                khutbah2Time: iqamaMap[.khutbah2] ?? ""
                             )
                             
                             
@@ -174,20 +171,17 @@ class HomeViewModel: ObservableObject {
                             
                         }
                     }
-                            
-                        case .failure(_):
-                            self?.state = HomeViewState(
-                                prayerTimes: [],
-                                loadingState: LoadingState.error
-                            )
-                            
-                            
-                            
-                        }
-                    }
+                    
+                case .failure(_):
+                    self?.state = HomeViewState(
+                        prayerTimes: [],
+                        loadingState: LoadingState.error
+                    )
+                    
+                    
+                    
                 }
             }
-            
         }
-        
-    
+    }
+}
