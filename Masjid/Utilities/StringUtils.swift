@@ -16,41 +16,41 @@ class StringUtils {
         
         for (index, word) in words.enumerated() {
             let nextWord = index < words.count - 1 ? words[index + 1].trimmingCharacters(in: .whitespacesAndNewlines) : ""
-            print("Processing word: \(word), nextWord: \(nextWord)") // Debugging line
+            print("Processing word: \(word), nextWord: \(nextWord)") // Debugging
             
             switch word.lowercased() {
             case "fajir", "fajr":
                 if validateIqamaTime(nextWord) {
-                    print("Fajr time found: \(nextWord) AM") // Debugging line
+                    print("Fajr time found: \(nextWord) AM") // Debugging
                     iqamaTimesMap[.fajr] = "\(nextWord) AM"
                 }
             case "zhur", "dhuhr", "dhur", "zhuhr", "zuhr":
                 if validateIqamaTime(nextWord) {
                     let time = nextWord[nextWord.index(nextWord.startIndex, offsetBy: 1)] == ":" ? "\(nextWord) PM" : "\(nextWord) AM"
-                    print("Dhuhr time found: \(time)") // Debugging line
+                    print("Dhuhr time found: \(time)") // Debugging
                     iqamaTimesMap[.dhuhr] = time
                 }
             case "asr":
                 if validateIqamaTime(nextWord) {
-                    print("Asr time found: \(nextWord) PM") // Debugging line
+                    print("Asr time found: \(nextWord) PM") // Debugging
                     iqamaTimesMap[.asr] = "\(nextWord) PM"
                 }
             case "maghrib", "maghreb":
                 if validateIqamaTime(nextWord) || nextWord.lowercased() == "sunset" {
                     let maghribTime = nextWord.lowercased() == "sunset" ? "Sunset" : nextWord
-                    print("Maghrib time found: \(maghribTime)") // Debugging line
+                    print("Maghrib time found: \(maghribTime)") // Debugging
                     iqamaTimesMap[.maghrib] = maghribTime.capitalized
                 }
             case "isha", "isha'a", "esha", "esha'a":
                 if validateIqamaTime(nextWord) {
-                    print("Isha time found: \(nextWord) PM") // Debugging line
+                    print("Isha time found: \(nextWord) PM") // Debugging
                     iqamaTimesMap[.isha] = "\(nextWord) PM"
                 }
             case "khutbah", "khutbah#", "khutba#", "khutba":
                 addKhutbahTime(words, index: index)
                 print("Khutbah times found: \(KhutbahTimesView.self)")
             default:
-                print("Word not matched: \(word)") // Debugging line
+                print("Word not matched: \(word)") // Debugging 
                 break
             }
         }
@@ -86,21 +86,21 @@ class StringUtils {
         
         // Ensure the khutbahNum is either "1" or "2"
         if khutbahNum != "1" && khutbahNum != "2" {
-            print("Skipping: Not a valid Khutbah number \(khutbahNum)") // Debugging line
+            print("Skipping: Not a valid Khutbah number \(khutbahNum)") // Debugging
             return
         }
         
-        // Now, let's search for the time
+        // searching for the time
         for i in index..<words.count {
             let cleanWord = words[i].trimmingCharacters(in: .whitespacesAndNewlines)
             if validateIqamaTime(cleanWord) {
                 switch khutbahNum {
                 case "1":
                     iqamaTimesMap[.khutbah1] = cleanWord
-                    print("Khutbah 1 time found: \(cleanWord)") // Debugging line
+                    print("Khutbah 1 time found: \(cleanWord)") // Debugging
                 case "2":
                     iqamaTimesMap[.khutbah2] = cleanWord
-                    print("Khutbah 2 time found: \(cleanWord)") // Debugging line
+                    print("Khutbah 2 time found: \(cleanWord)") // Debugging
                 default:
                     break
                 }

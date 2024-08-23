@@ -35,14 +35,14 @@ struct HomeViewSuccess: View {
     
     var body: some View {
         VStack {
-            // Define the KhutbahTimesView in your View file
+            
             KhutbahTimesView(
                 khutbah1Time: state.khutbah1Time,
                 khutbah2Time: state.khutbah2Time
             )
             .padding(.bottom, 2 )
             
-            // Display the PrayerTimeCard below KhutbahTimesView
+            //have to put PrayerTimeCard below KhutbahTimesView for correct display
             PrayerTimeCard(
                 prayerTimes: state.prayerTimes,
                 prayerColumnTitle: state.prayerColumnTitle,
@@ -56,7 +56,6 @@ struct HomeViewSuccess: View {
     }
 }
 
-// Define the KhutbahTimesView struct here in the View file.
 struct KhutbahTimesView: View {
     var khutbah1Time: String
     var khutbah2Time: String
