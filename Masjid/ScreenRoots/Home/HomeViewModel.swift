@@ -10,6 +10,7 @@ import SwiftSoup
 
 struct HomeViewState {
     let prayerTimes: [PrayerTime]
+    let currentPrayerType: PrayerType?
     let loadingState: LoadingState
     let errorMessage: String
     let errorButtonMessage: String
@@ -22,6 +23,7 @@ struct HomeViewState {
 
     init(
         prayerTimes: [PrayerTime] = [],
+        currentPrayerType: PrayerType? = nil,
         loadingState: LoadingState = .loading,
         errorMessage: String = HOME_ERROR_MESSAGE,
         errorButtonMessage: String = HOME_ERROR_BUTTON_MESSAGE,
@@ -33,6 +35,7 @@ struct HomeViewState {
         iqamaColumnTitle: String = IQAMA_COLUMN_TITLE
     ) {
         self.prayerTimes = prayerTimes
+        self.currentPrayerType = currentPrayerType
         self.loadingState = loadingState
         self.errorMessage = errorMessage
         self.errorButtonMessage = errorButtonMessage
@@ -44,6 +47,7 @@ struct HomeViewState {
         self.iqamaColumnTitle = iqamaColumnTitle
     }
 }
+
 
 struct PrayerTime {
     let type: PrayerType
@@ -156,10 +160,13 @@ class HomeViewModel: ObservableObject {
                                 PrayerTime(type: .maghrib, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Maghrib) ?? success.data.timings.Maghrib, iqamaTime: iqamaMap[.maghrib]),
                                 PrayerTime(type: .isha, prayerTime: TimeUtils.convertTo12HourFormat(success.data.timings.Isha) ?? success.data.timings.Isha, iqamaTime: iqamaMap[.isha])
                             ]
-                            
+                            let currentPrayerType = self?.determineCurrentPrayer(prayerTimes: prayerTimes)
+
                             
                             self?.state = HomeViewState(
+                                
                                 prayerTimes: prayerTimes,
+                                currentPrayerType: currentPrayerType,
                                 loadingState: LoadingState.success,
                                 khutbah1Time: iqamaMap[.khutbah1] ?? "",
                                 khutbah2Time: iqamaMap[.khutbah2] ?? ""
@@ -184,4 +191,30 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-}
+    private func determineCurrentPrayer(prayerTimes: [PrayerTime]) -> PrayerType? {
+           let currentTime = Date()
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "h:mm a"
+
+           for (index, prayer) in prayerTimes.enumerated() {
+               if let prayerDate = dateFormatter.date(from: prayer.prayerTime),
+                  index < prayerTimes.count - 1,
+                  let nextPrayerDate = dateFormatter.date(from: prayerTimes[index + 1].prayerTime) {
+                   
+                   if currentTime >= prayerDate && currentTime < nextPrayerDate {
+                       return prayer.type
+                   }
+               }
+           }
+           
+           
+           if let lastPrayer = prayerTimes.last,
+              let lastPrayerDate = dateFormatter.date(from: lastPrayer.prayerTime),
+              currentTime >= lastPrayerDate {
+               return lastPrayer.type
+           }
+           
+           return nil
+       }
+   }
+
