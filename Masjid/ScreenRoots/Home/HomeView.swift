@@ -11,7 +11,7 @@ struct HomeView: View {
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .ignoresSafeArea()
-                    .padding(.top, -120)
+                    .padding(.top, -10)
 
                 VStack {
                     switch viewModel.state.loadingState {
@@ -27,16 +27,15 @@ struct HomeView: View {
                         HomeViewSuccess(state: viewModel.state)
                     }
                 }
-                .padding(.top, -geometry.size.height * 0.25)
+                .padding(.top, -geometry.size.height * 0.15)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)  // Ensure the view uses the entire screen space
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 struct HomeViewSuccess: View {
     var state: HomeViewState
-    
     var body: some View {
         VStack(spacing: 0) {
             KhutbahTimesView(
@@ -50,7 +49,7 @@ struct HomeViewSuccess: View {
                 prayerColumnTitle: state.prayerColumnTitle,
                 athanColumnTitle: state.athanColumnTitle,
                 iqamaColumnTitle: state.iqamaColumnTitle,
-                currentPrayerType: state.currentPrayerType  // Pass the current prayer type
+                currentPrayerType: state.currentPrayerType
             )
             .padding(.top, 0)
         }
@@ -74,17 +73,17 @@ struct KhutbahTimesView: View {
                 Text("Friday Khutbah")
                     .font(.headline)
                     .padding(.top, 10)
-                    .foregroundStyle(.white)
+                    .foregroundColor(.white)
                 HStack {
                     Text("English/Arabic: \(khutbah1Time)")
                         .font(.subheadline)
                         .padding(.bottom, 10)
-                        .foregroundStyle(.white)
+                        .foregroundColor(.white)
 
                     Text("   Kurdish/English: \(khutbah2Time)")
                         .font(.subheadline)
                         .padding(.bottom, 10)
-                        .foregroundStyle(.white)
+                        .foregroundColor(.white)
                 }
             }
         }
@@ -94,11 +93,11 @@ struct KhutbahTimesView: View {
 
 struct CardView<Content: View>: View {
     let content: Content
-    
+
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
-    
+
     var body: some View {
         content
             .background(Color.clear)
@@ -117,7 +116,7 @@ struct PrayerTimeCard: View {
     var prayerColumnTitle: String
     var athanColumnTitle: String
     var iqamaColumnTitle: String
-    var currentPrayerType: PrayerType?  // Add this property
+    var currentPrayerType: PrayerType?
     
     var body: some View {
         CardView {
@@ -126,7 +125,7 @@ struct PrayerTimeCard: View {
                 prayerColumnTitle: prayerColumnTitle,
                 athanColumnTitle: athanColumnTitle,
                 iqamaColumnTitle: iqamaColumnTitle,
-                currentPrayerType: currentPrayerType  // Pass the current prayer type
+                currentPrayerType: currentPrayerType
             )
             .background(Color.clear)
         }
@@ -139,7 +138,7 @@ struct PrayerTimeTable: View {
     var prayerColumnTitle: String
     var athanColumnTitle: String
     var iqamaColumnTitle: String
-    var currentPrayerType: PrayerType?  // Add this property
+    var currentPrayerType: PrayerType?
     
     var body: some View {
         VStack {
@@ -155,7 +154,7 @@ struct PrayerTimeTable: View {
             ForEach(prayerTimes, id: \.type) { prayerTime in
                 PrayerTimeRow(
                     prayerTime: prayerTime,
-                    isCurrentPrayer: prayerTime.type == currentPrayerType  // Pass down the current prayer status
+                    isCurrentPrayer: prayerTime.type == currentPrayerType
                 )
                 Divider()
                     .frame(height: 1.5)
@@ -203,29 +202,21 @@ struct PrayerTimeRow: View {
         HStack(spacing: 0) {
             Text(prayerTime.type.prayerName)
                 .foregroundColor(.white)
-                .textBodyPrimary()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer()
+                .padding(.leading, 8)
+            
             Text(prayerTime.prayerTime)
                 .foregroundColor(.white)
-                .textBodyPrimary()
                 .frame(maxWidth: .infinity, alignment: .center)
-            Spacer()
+            
             Text(prayerTime.iqamaTime ?? "")
                 .foregroundColor(.white)
-                .textBodyPrimary()
                 .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, 8)
         }
-        .padding(.vertical, 4)
-       .padding(.horizontal, 4)
+        .padding(.vertical, 8)
         .background(isCurrentPrayer ? Color.blue.opacity(0.8) : Color.clear)
         .cornerRadius(10)
         .padding(.horizontal, 4)
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
     }
 }
